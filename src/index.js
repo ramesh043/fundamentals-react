@@ -1,17 +1,44 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import Book from "./Book";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const books = [
+  {
+    id: 1,
+    title: "Ramesh",
+    author: "jvshajkj",
+    img: "https://images-na.ssl-images-amazon.com/images/I/71m+Qtq+HrL._AC_UL900_SR900,600_.jpg",
+  },
+  {
+    id: 2,
+    title: "Ramesh",
+    author: "jvshajkj",
+    img: "https://images-na.ssl-images-amazon.com/images/I/71m+Qtq+HrL._AC_UL900_SR900,600_.jpg",
+  },
+  {
+    id: 3,
+    title: "Ramesh",
+    author: "jvshajkj",
+    img: "https://images-na.ssl-images-amazon.com/images/I/71m+Qtq+HrL._AC_UL900_SR900,600_.jpg",
+  },
+];
+const Booklist = () => {
+  return (
+    <section className="bookList">
+      {books.map((book, index) => {
+        const { img, title, author, id } = book;
+        return <Book {...book} key={book.id} />;
+      })}
+    </section>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
+    <Booklist />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
